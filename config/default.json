@@ -1,4 +1,7 @@
 {
     "mongoURI": "mongodb+srv://Chelsey:Chelsey@my-devconnector.s6kk0.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-    "jwtToken": "mysecrettoken"
+    "jwtToken": "mysecrettoken",
+    "githubClientId":"cedf621567881cec7583",
+    "githubSecret":"bed4f12c75bebb2d9beae336a5a2b127502c2a4f"
+
 }
