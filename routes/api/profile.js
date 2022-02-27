@@ -110,7 +110,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-//get user profile
+//get user profile by ID
 
 router.get("/user/:user_id", async (req, res) => {
   try {
