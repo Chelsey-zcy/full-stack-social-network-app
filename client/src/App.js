@@ -50,12 +50,12 @@ const App = () => {
               />
               <PrivateRoute
                 exact
-                path="/edit-experience"
+                path="/add-experience"
                 component={AddExperience}
               />
               <PrivateRoute
                 exact
-                path="/edit-education"
+                path="/add-education"
                 component={AddEducation}
               />
             </Switch>
