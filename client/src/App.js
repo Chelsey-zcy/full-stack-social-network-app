@@ -9,8 +9,8 @@ import PrivateRoute from "./components/routing/PrivateRoute";
 import Alert from "./components/layout/Alert";
 import CreateProfile from "./components/profile-form/CreateProfile";
 import EditProfile from "./components/profile-form/EditProfile";
-import EditExperience from "./components/profile-form/EditExperience";
-import EditEducation from "./components/profile-form/EditEducation";
+import AddExperience from "./components/profile-form/AddExperience";
+import AddEducation from "./components/profile-form/AddEducation";
 import { Provider } from "react-redux";
 import store from "./store";
 import { loadUser } from "./actions/auth";
@@ -51,12 +51,12 @@ const App = () => {
               <PrivateRoute
                 exact
                 path="/edit-experience"
-                component={EditExperience}
+                component={AddExperience}
               />
               <PrivateRoute
                 exact
                 path="/edit-education"
-                component={EditEducation}
+                component={AddEducation}
               />
             </Switch>
           </section>

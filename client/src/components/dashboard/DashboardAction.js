@@ -9,12 +9,12 @@ const DashboardAction = () => {
         Edit Profile
       </Link>
       <i className="fas fa-briefcase text-primary"></i>
-      <Link to="edit-experience" className="btn btn-light">
-        Edit Experience{" "}
+      <Link to="add-experience" className="btn btn-light">
+        Add Experience{" "}
       </Link>
       <i className="fas fa-briefcase text-primary"></i>
-      <Link to="edit-education" className="btn btn-light">
-        Edit Education{" "}
+      <Link to="add-education" className="btn btn-light">
+        Add Education{" "}
       </Link>
     </div>
   );
