@@ -292,6 +292,8 @@ button {
 .table td {
   padding: 1rem;
   text-align: left;
+  text-align: center;
+
 }
 
 .table th {
