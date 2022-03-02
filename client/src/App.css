@@ -1,10 +1,12 @@
 /* Global Styles */
 :root {
-  --primary-color: #17a2b8;
+  --primary-color: #65b817;
+  --secondary-color:#4d9b3d;
+  --text-secondary-color:rgb(10, 58, 8);
   --dark-color: #343a40;
-  --light-color: #f4f4f4;
-  --danger-color: #dc3545;
-  --success-color: #28a745;
+  --light-color: #f4f4f4b0;
+  --danger-color: #dd8e44;
+  --success-color: #39a552;
 }
 
 * {
@@ -68,6 +70,10 @@ img {
 
 .text-primary {
   color: var(--primary-color);
+}
+
+.text-secondary {
+  color: var(--text-secondary-color);
 }
 
 .text-dark {
@@ -161,6 +167,14 @@ img {
 .badge-primary,
 .alert-primary {
   background: var(--primary-color);
+  color: #fff;
+}
+
+.btn-secondary,
+.bg-secondary,
+.badge-secondary,
+.alert-secondary {
+  background: var(--secondary-color);
   color: #fff;
 }
 
