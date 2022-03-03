@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { Link, withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -14,18 +14,24 @@ const AddExperience = ({ history, addExperience }) => {
     to: "",
     description: "",
   });
-
-  const [toDateDisabled, toggleDisabled] = useState(false);
-
   const { title, company, location, from, current, to, description } = formData;
 
-  const onChange = (e) =>
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const onChange = (event) => {
+    const value =
+      event.target.type === "checkbox"
+        ? event.target.checked
+        : event.target.value;
+    setFormData({ ...formData, [event.target.name]: value });
+  };
 
   const onSubmit = (e) => {
     e.preventDefault();
     addExperience(formData, history);
   };
+
+  useEffect(() => {
+    setFormData({ ...formData, to: "" });
+  }, [current]);
 
   return (
     <Fragment>
@@ -74,18 +80,13 @@ const AddExperience = ({ history, addExperience }) => {
               type="checkbox"
               name="current"
               checked={current}
-              value={current}
-              onChange={(e) => {
-                setFormData({ ...formData, current: !current });
-                setFormData({ ...formData, to: "" });
-                toggleDisabled(!toDateDisabled);
-              }}
+              onChange={onChange}
             />{" "}
             Current Job
           </p>
         </div>
 
-        {!toDateDisabled && (
+        {!current && (
           <div className="form-group">
             <h4>To Date</h4>
             <input type="date" name="to" value={to} onChange={onChange} />
