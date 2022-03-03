@@ -77,22 +77,19 @@ const AddEducation = ({ history, addEducation }) => {
               value={current}
               onChange={(e) => {
                 setFormData({ ...formData, current: !current });
+                setFormData({ ...formData, to: "" });
                 toggleDisabled(!toDateDisabled);
               }}
             />{" "}
             Current School
           </p>
         </div>
-        <div className="form-group">
-          <h4>To Date</h4>
-          <input
-            type="date"
-            name="to"
-            value={to}
-            onChange={onChange}
-            disabled={toDateDisabled ? "disabled" : ""}
-          />
-        </div>
+        {!toDateDisabled && (
+          <div className="form-group">
+            <h4>To Date</h4>
+            <input type="date" name="to" value={to} onChange={onChange} />
+          </div>
+        )}
         <div className="form-group">
           <textarea
             name="description"

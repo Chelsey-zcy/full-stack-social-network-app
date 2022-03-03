@@ -26,6 +26,7 @@ const AddExperience = ({ history, addExperience }) => {
     e.preventDefault();
     addExperience(formData, history);
   };
+
   return (
     <Fragment>
       <h1 className="large text-primary">Add An Experience</h1>
@@ -76,22 +77,21 @@ const AddExperience = ({ history, addExperience }) => {
               value={current}
               onChange={(e) => {
                 setFormData({ ...formData, current: !current });
+                setFormData({ ...formData, to: "" });
                 toggleDisabled(!toDateDisabled);
               }}
             />{" "}
             Current Job
           </p>
         </div>
-        <div className="form-group">
-          <h4>To Date</h4>
-          <input
-            type="date"
-            name="to"
-            value={to}
-            onChange={onChange}
-            disabled={toDateDisabled ? "disabled" : ""}
-          />
-        </div>
+
+        {!toDateDisabled && (
+          <div className="form-group">
+            <h4>To Date</h4>
+            <input type="date" name="to" value={to} onChange={onChange} />
+          </div>
+        )}
+
         <div className="form-group">
           <textarea
             name="description"
