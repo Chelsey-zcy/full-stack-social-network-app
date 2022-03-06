@@ -3,11 +3,13 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import Moment from "react-moment";
 import { connect } from "react-redux";
-import { addLike, removeLike } from "../../actions/post";
+import { addLike, removeLike, deletePost, getPosts } from "../../actions/post";
 
 const PostItem = ({
   addLike,
   removeLike,
+  deletePost,
+  getPosts,
   auth,
   post: { _id, text, name, avatar, user, likes, comments, date },
 }) => {
@@ -15,6 +17,11 @@ const PostItem = ({
     likes.filter((like) => like.user === auth.user._id).length > 0
       ? removeLike(_id)
       : addLike(_id);
+  };
+
+  const deletePostAndRefresh = async () => {
+    await deletePost(_id);
+    getPosts();
   };
 
   return (
@@ -40,7 +47,7 @@ const PostItem = ({
           <span className="comment-count">{comments.length}</span>{" "}
         </Link>
         {!auth.loading && user === auth.user._id && (
-          <button className="btn btn-danger">
+          <button className="btn btn-danger" onClick={deletePostAndRefresh}>
             <i className="fas fa-times" />
           </button>
         )}
@@ -58,4 +65,10 @@ PostItem.propTypes = {
 const mapStateToProps = (state) => ({
   auth: state.auth,
 });
-export default connect(mapStateToProps, { addLike, removeLike })(PostItem);
+
+export default connect(mapStateToProps, {
+  addLike,
+  removeLike,
+  deletePost,
+  getPosts,
+})(PostItem);
