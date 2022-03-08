@@ -18,12 +18,18 @@ export const loadUser = () => async (dispatch) => {
     setAuthToken(localStorage.token);
   }
   try {
-    const res = await axios.get("api/auth");
+    const res = await axios.get("/api/auth");
     dispatch({
       type: USER_LOADED,
       payload: res.data,
     });
   } catch (err) {
+    if (err.response.status === 500) {
+      console.log(
+        "后端挂了，所以根本没办法验证你，因此先不要执行下面的 AUTH_ERROR"
+      );
+      return;
+    }
     dispatch({
       type: AUTH_ERROR,
     });
