@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
@@ -11,9 +11,6 @@ const CommentItem = ({
   deleteComment,
   auth,
 }) => {
-  useEffect(() => {
-    getPost(postId);
-  }, [getPost]);
   return (
     <div className="post bg-white p-1 my-1">
       <div>

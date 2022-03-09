@@ -60,7 +60,7 @@ export default function post(state = initialState, action) {
     case DELETE_COMMENT:
       return {
         ...state,
-        post: state.post,
+        post: { ...state.post, comments: payload },
         loading: false,
       };
     case ADD_COMMENT:
