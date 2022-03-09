@@ -6,6 +6,7 @@ import { getPost } from "../../actions/post";
 import Spinner from "../layout/Spinner";
 import CommentForm from "./CommentForm";
 import PostItem from "../posts/PostItem";
+import CommentItem from "./CommentItem";
 
 const Post = ({ getPost, match, post: { post, loading } }) => {
   useEffect(() => {
@@ -16,11 +17,14 @@ const Post = ({ getPost, match, post: { post, loading } }) => {
     <Spinner />
   ) : (
     <Fragment>
-      {/* <CommentForm /> */}
       <Link to="/posts">
         <button>Go Back</button>{" "}
       </Link>
       <PostItem post={post} />
+      <CommentForm postId={match.params.id} />
+      {post.comments.map((comment) => (
+        <CommentItem key={comment._id} comment={comment} postId={post._id} />
+      ))}
     </Fragment>
   );
 };
