@@ -1,6 +1,9 @@
 {
   "name": "my_dev_connector",
   "version": "1.0.0",
+  "engines": {
+    "node": "16.x"
+  },
   "description": "Social network for developers",
   "main": "(index.js) server.js",
   "scripts": {
