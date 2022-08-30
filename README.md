@@ -14,9 +14,7 @@
 
 ---
 
-### 🏠 [Homepage](www.todo.com)
-
-### ✨ [Demo](http://todo.com)
+### ✨ [Demo](https://bit.ly/3B0oHoX)
 
 ## Prerequisites
 
@@ -42,13 +40,6 @@ Run the client side
 cd client
 npm run start
 ```
-
-## Author
-
-👤 **Chelsey**
-
-- Github: [@Chselsey-zcy](https://github.com/Chselsey-zcy)
-- LinkedIn: [@Chelsey Zhang](https://linkedin.com/in/chelsey-zcy/)
 
 ## Show your support
 
